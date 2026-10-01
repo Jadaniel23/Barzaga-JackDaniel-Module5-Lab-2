@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef1f4">
+  <title>Secure Dynamic Task Manager</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="page-header">
+      <p class="eyebrow">ITP10 · EVENT-DRIVEN PROGRAMMING</p>
+      <h1>Secure Dynamic Task Manager</h1>
+      <p class="intro">Capture a task, update its status, and keep your list moving. Task text is displayed safely as plain text.</p>
+    </header>
+
+    <section class="workspace" aria-label="Task manager">
+      <form id="taskForm" class="composer" aria-label="Add a task" novalidate>
+        <div class="task-entry">
+          <label for="taskInput">New task</label>
+          <input type="text" id="taskInput" placeholder="Enter a task" autocomplete="off" aria-describedby="taskMessage">
+        </div>
+        <button type="submit" id="addTaskBtn">Add Task</button>
+        <button type="button" id="loadSamplesBtn" class="secondary">Load Sample Tasks</button>
+      </form>
+
+      <p id="taskMessage" class="message" role="alert" aria-live="assertive"></p>
+
+      <section class="summary" aria-label="Task summary">
+        <div class="summary-title"><p class="eyebrow">YOUR WORK</p><h2>Task overview</h2></div>
+        <div class="summary-stat"><span class="stat-value" id="totalCount">0</span><span class="stat-label">Total Tasks</span></div>
+        <div class="summary-stat"><span class="stat-value" id="pendingCount">0</span><span class="stat-label">Pending</span></div>
+        <div class="summary-stat"><span class="stat-value" id="completedCount">0</span><span class="stat-label">Completed</span></div>
+      </section>
+
+      <section class="tasks-section" aria-labelledby="tasksHeading">
+        <div class="tasks-heading"><h2 id="tasksHeading">Task list</h2><span class="list-note">Select an action to update a task</span></div>
+        <p id="emptyState" class="empty-state" role="status">No tasks yet. Type a task above and press Add Task.</p>
+        <ul id="taskList" class="task-list" aria-label="Tasks"></ul>
+      </section>
+    </section>
+    <footer>Changes stay in this browser session. No account or server is required.</footer>
+  </main>
+</body>
+</html>

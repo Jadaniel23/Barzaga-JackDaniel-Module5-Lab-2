@@ -1,25 +1,28 @@
 # Secure Dynamic Task Manager
 
-ITP10 Event-Driven Programming laboratory project. Tasks are created and changed in the browser without a database or reload. The code is divided into data, utility, display, and main ES modules.
+ITP10 Event-Driven Programming laboratory project. Tasks are created and edited in the browser without a database or reload. Task text is always inserted as text, never interpreted as HTML.
 
-## Run the app
+## Run locally
 
-Because the JavaScript uses ES module imports, open the folder through a small local web server rather than a `file://` URL. From this directory, run:
+The JavaScript uses ES module imports, so serve this folder over HTTP instead of opening `index.html` as a `file://` URL. From this directory, run:
 
 ```powershell
 py -m http.server 8000
 ```
 
-Then visit <http://localhost:8000> in your browser. Press Ctrl+C in the terminal to stop the server.
+Then open <http://localhost:8000>. Stop the server with Ctrl+C.
 
-## Project structure
+## Module layout
 
-- `index.html` — accessible app controls and empty task list
-- `css/style.css` — responsive layout and task states
-- `js/app.js` — application behavior and event delegation
-- `js/modules/data.js` — sample task data and validation message
-- `js/modules/utils.js` — text validation and unique IDs
-- `js/modules/display.js` — safe task element creation and live counts
-- `screenshots/` — app-state evidence for the lab submission
+- `js/modules/data.js` stores the required sample tasks and validation message.
+- `js/modules/utils.js` validates task text and generates unique task IDs.
+- `js/modules/display.js` creates task elements safely and updates the live counts.
+- `js/app.js` handles application actions and the single delegated task-list click event. It imports and exports the named lab functions.
 
-All task text is inserted with `textContent`; task actions use one delegated click handler on the task list.
+## Evidence
+
+- `screenshots/initial-empty.png` — empty initial state and zero counts.
+- `screenshots/empty-task-validation.png` — exact blank-task validation message.
+- `screenshots/safe-text-rendering.png` — HTML-like input shown literally as text.
+- `screenshots/task-actions-and-counts.png` — completed and edited tasks with live counts.
+- `TEST_RESULTS.md` — browser verification results for the required behaviors.

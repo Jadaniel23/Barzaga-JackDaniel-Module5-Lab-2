@@ -2,15 +2,28 @@ import { EMPTY_MESSAGE, SAMPLE_TASKS } from "./modules/data.js";
 import { createTaskId, isValidTaskText, normalizeTaskText } from "./modules/utils.js";
 import { createTaskElement, renderTaskCounts } from "./modules/display.js";
 
-const taskInput = document.getElementById("taskInput");
-const taskForm = document.getElementById("taskForm");
-const loadSamplesBtn = document.getElementById("loadSamplesBtn");
-const taskList = document.getElementById("taskList");
-const taskMessage = document.getElementById("taskMessage");
-const emptyState = document.getElementById("emptyState");
-const totalCount = document.getElementById("totalCount");
-const pendingCount = document.getElementById("pendingCount");
-const completedCount = document.getElementById("completedCount");
+const elements = {
+  taskInput: document.getElementById("taskInput"),
+  taskForm: document.getElementById("taskForm"),
+  loadSamplesBtn: document.getElementById("loadSamplesBtn"),
+  taskList: document.getElementById("taskList"),
+  taskMessage: document.getElementById("taskMessage"),
+  emptyState: document.getElementById("emptyState"),
+  totalCount: document.getElementById("totalCount"),
+  pendingCount: document.getElementById("pendingCount"),
+  completedCount: document.getElementById("completedCount")
+};
+const {
+  taskInput,
+  taskForm,
+  loadSamplesBtn,
+  taskList,
+  taskMessage,
+  emptyState,
+  totalCount,
+  pendingCount,
+  completedCount
+} = elements;
 
 function showMessage(text) {
   taskMessage.textContent = text;
